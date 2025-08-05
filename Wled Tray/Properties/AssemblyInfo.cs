@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("Wled Tray")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Ve5os")]
 [assembly: AssemblyProduct("Wled Tray")]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
