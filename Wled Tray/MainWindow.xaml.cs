@@ -14,30 +14,15 @@ namespace Wled_Tray
     /// </summary>
     public partial class MainWindow : Window
     {
-        IniFile MyIni;
+        private LanguagePackage languagePackage;
         public MainWindow()
         {
             InitializeComponent();
             this.Hide();
-            MyIni = new IniFile("Settings.ini");
             CardList.ItemsSource = cards;
-            Language();
-        }
-        private void Language()
-        {
-            if (!MyIni.KeyExists("Lang"))
-            {
-                MyIni.Write("Lang", "ru");
-            }
-            if (MyIni.Read("Lang") == "en")
-            {
-                Main.Content = "⚙️ Main";
-                Information.Content = "⚠️ Information";
-                LangLabel.Content = "Language";
-                AddBtn.Content = "Add";
-                this.Title = "Settings Wled Tray";
-                TittleLabel.Content = "Settings Wled Tray";
-            }
+            languagePackage = new LanguagePackage(this, null); // передаём себя
+            languagePackage.Update();
+
         }
         private void DragBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -48,11 +33,11 @@ namespace Wled_Tray
         }
         private void Rus_Clk(object sender, RoutedEventArgs e)
         {
-            MyIni.Write("Lang", "ru");
+            languagePackage.Write("ru");
         }
         private void Eng_Clk(object sender, RoutedEventArgs e)
         {
-            MyIni.Write("Lang", "en");
+            languagePackage.Write("en");
         }
         private void CloseBTN_Click(object sender, RoutedEventArgs e)
         {

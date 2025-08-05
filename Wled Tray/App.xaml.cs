@@ -13,13 +13,14 @@ namespace Wled_Tray
 {
     public partial class App : System.Windows.Application
     {
+        IniFile MyIni;
         NotifyIcon trayIcon;
         private ContextMenuStrip trayMenu;
-         
+
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
             trayIcon = new NotifyIcon();
             trayIcon.Icon = new Icon("wled.ico"); // Добавь иконку в корень проекта
             trayIcon.Visible = true;
