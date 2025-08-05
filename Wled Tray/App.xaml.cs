@@ -15,7 +15,7 @@ namespace Wled_Tray
     {
         NotifyIcon trayIcon;
         private ContextMenuStrip trayMenu;
-
+         
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
