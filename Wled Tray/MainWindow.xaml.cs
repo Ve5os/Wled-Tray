@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Wled_Tray
 {
@@ -28,11 +21,15 @@ namespace Wled_Tray
             this.Hide();
             MyIni = new IniFile("Settings.ini");
             CardList.ItemsSource = cards;
+            Language();
+        }
+        private void Language()
+        {
             if (!MyIni.KeyExists("Lang"))
             {
                 MyIni.Write("Lang", "ru");
             }
-           if(MyIni.Read("Lang") == "en")
+            if (MyIni.Read("Lang") == "en")
             {
                 Main.Content = "⚙️ Main";
                 Information.Content = "⚠️ Information";
@@ -57,7 +54,6 @@ namespace Wled_Tray
         {
             MyIni.Write("Lang", "en");
         }
-
         private void CloseBTN_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -88,10 +84,12 @@ namespace Wled_Tray
         private ObservableCollection<SimpleCard> cards = new ObservableCollection<SimpleCard>();
 
 
-
         private void Add_Clk(object sender, RoutedEventArgs e)
         {
-            cards.Add(new SimpleCard { Title = $" WLED Device Address: {IpInput.Text.Replace(',', '.')}" });
+            if (IpInput.Text.Length > 6)
+            {
+                cards.Add(new SimpleCard { Title = $" WLED Device Address: {IpInput.Text.Replace(',', '.')}" });
+            }
         }
 
         private void DeleteCard_Click(object sender, RoutedEventArgs e)

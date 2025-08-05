@@ -23,12 +23,12 @@ namespace Wled_Tray
             trayIcon = new NotifyIcon();
             trayIcon.Icon = new Icon("wled.ico"); // Добавь иконку в корень проекта
             trayIcon.Visible = true;
-            trayIcon.Text = "WLED Контроллер";
+            trayIcon.Text = "Wled Tray";
             this.ShutdownMode = ShutdownMode.OnExplicitShutdown;
 
             trayMenu = new ContextMenuStrip();
-            trayMenu.Items.Add("Настройки", null, OnSettingsClicked);
-            trayMenu.Items.Add("Выход", null, OnExitClicked);
+            trayMenu.Items.Add("Настройки", null, OnSettingsClicked_tray);
+            trayMenu.Items.Add("Выход", null, OnExitClicked_tray);
 
             trayIcon.ContextMenuStrip = trayMenu;
 
@@ -36,16 +36,17 @@ namespace Wled_Tray
 
             
         }
-        private void OnExitClicked(object sender, EventArgs e)
+        #region Tray Buttons
+        private void OnExitClicked_tray(object sender, EventArgs e)
         {
             trayIcon.Visible = false;
             trayIcon.Dispose();
             System.Windows.Application.Current.Shutdown();
         }
-        private void OnSettingsClicked(object sender, EventArgs e)
+        private void OnSettingsClicked_tray(object sender, EventArgs e)
         {
             var mainWindow = System.Windows.Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
-
+      
             if (mainWindow == null)
             {
                 mainWindow = new MainWindow();
@@ -55,11 +56,11 @@ namespace Wled_Tray
             {
                 if (!mainWindow.IsVisible)
                     mainWindow.Show();
-
+      
                 mainWindow.Activate();
             }
         }
-
+        #endregion
         protected override void OnExit(ExitEventArgs e)
         {
             trayIcon.Visible = false;
