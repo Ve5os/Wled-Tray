@@ -19,7 +19,7 @@
 
 ## 🖥️ Screenshots
 
-| Tray and control cards | Settings |
+| Tray and control cards | Showcase |
 |-----------------------|----------|
 | ![screenshot](Screenshot/tray.png) | ![screenshot](Screenshot/showcase.gif) |
 
