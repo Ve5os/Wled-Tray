@@ -21,7 +21,7 @@
 
 | Трей и карточки управления | Настройки |
 |---------------------------|-----------|
-| ![screenshot](Screenshot/tray.png) | ![screenshot](screenshot2.png) |
+| ![screenshot](Screenshot/tray.png) | ![screenshot](Screenshot/showcase.gif) |
 
 ---
 
