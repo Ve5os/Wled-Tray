@@ -28,6 +28,19 @@ namespace Wled_Tray
             this.Hide();
             MyIni = new IniFile("Settings.ini");
             CardList.ItemsSource = cards;
+            if (!MyIni.KeyExists("Lang"))
+            {
+                MyIni.Write("Lang", "ru");
+            }
+           if(MyIni.Read("Lang") == "en")
+            {
+                Main.Content = "⚙️ Main";
+                Information.Content = "⚠️ Information";
+                LangLabel.Content = "Language";
+                AddBtn.Content = "Add";
+                this.Title = "Settings Wled Tray";
+                TittleLabel.Content = "Settings Wled Tray";
+            }
         }
         private void DragBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -36,13 +49,22 @@ namespace Wled_Tray
                 try { this.DragMove(); } catch { }
             }
         }
+        private void Rus_Clk(object sender, RoutedEventArgs e)
+        {
+            MyIni.Write("Lang", "ru");
+        }
+        private void Eng_Clk(object sender, RoutedEventArgs e)
+        {
+            MyIni.Write("Lang", "en");
+        }
+
         private void CloseBTN_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
         private void Main_Clk(object sender, RoutedEventArgs e)
         {
-           _1.Visibility = Visibility.Visible;
+            _1.Visibility = Visibility.Visible;
             _2.Visibility = Visibility.Hidden;
             _3.Visibility = Visibility.Hidden;
         }
@@ -69,7 +91,7 @@ namespace Wled_Tray
 
         private void Add_Clk(object sender, RoutedEventArgs e)
         {
-            cards.Add(new SimpleCard { Title = $" WLED Device Address: {IpInput.Text.Replace(',','.')}" });
+            cards.Add(new SimpleCard { Title = $" WLED Device Address: {IpInput.Text.Replace(',', '.')}" });
         }
 
         private void DeleteCard_Click(object sender, RoutedEventArgs e)

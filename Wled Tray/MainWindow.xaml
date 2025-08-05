@@ -112,9 +112,27 @@
     <Grid>
         <Border BorderBrush="#FF3C3C3C" Background="#FF2D2D2D" Margin="226,32,0,0" CornerRadius="0,0,10,0" BorderThickness="0,0,1,1">
             <Grid x:Name="Right">
-                <Grid x:Name="_1" d:IsHidden="True"/>
+                <Grid x:Name="_1" d:IsHidden="True">
+                    <Border x:Name="Lang" Margin="10,10,10,596" Background="#FF282828" CornerRadius="10,10,10,10" Padding="3,0,0,0" BorderThickness="1,1,1,1" BorderBrush="#FF3C3C3C">
+                        <Grid>
+                            <Label x:Name="LangLabel" Content="Язык" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="39" Width="334" Foreground="White" FontSize="20" RenderTransformOrigin="0.5,0.5">
+                                <Label.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleY="0.059"/>
+                                        <RotateTransform/>
+                                        <TranslateTransform Y="0.249"/>
+                                    </TransformGroup>
+                                </Label.RenderTransform>
+                            </Label>
+                            <Button Style="{StaticResource CustomRoundedButton}" Click="Rus_Clk" Content="Русский" Width="80" Margin="658,10,10,10"/>
+                            <Button Style="{StaticResource CustomRoundedButton}" Click="Eng_Clk" Content="English" Width="80" Margin="568,10,100,10"/>
+
+                        </Grid>
+                    </Border>
+                </Grid>
                 <Grid x:Name="_2">
-                    <Border x:Name="Plate" Margin="10,10,10,596" Background="#FF282828" CornerRadius="10,10,10,10" Padding="3,0,0,0" BorderThickness="1,1,1,1" BorderBrush="#FF3C3C3C">
+                    <Border x:Name="WledIP" Margin="10,10,10,596" Background="#FF282828" CornerRadius="10,10,10,10" Padding="3,0,0,0" BorderThickness="1,1,1,1" BorderBrush="#FF3C3C3C">
                         <Grid>
                             <Label Content="WLED IP" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="39" Width="334" Foreground="White" FontSize="20" RenderTransformOrigin="0.5,0.5">
                                 <Label.RenderTransform>
@@ -143,7 +161,7 @@
                VerticalAlignment="Center"
                Visibility="{Binding Text.IsEmpty, ElementName=IpInput, Converter={StaticResource BoolToVisibilityConverter}}"/>
                             </Grid>
-                            <Button Style="{StaticResource CustomRoundedButton}" Click="Add_Clk" Content="ADD" Width="80" Margin="658,10,10,10"/>
+                            <Button x:Name="AddBtn" Style="{StaticResource CustomRoundedButton}" Click="Add_Clk" Content="Добавить" Width="80" Margin="658,10,10,10"/>
 
                         </Grid>
                     </Border>
@@ -188,7 +206,9 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </Grid>
-                <Grid x:Name="_3" d:IsHidden="True"/>
+                <Grid x:Name="_3" d:IsHidden="True">
+                    <Label Content="GitHub - https://github.com/Ve5os/Wled-Tray" HorizontalAlignment="Center" Margin="0,629,0,0" VerticalAlignment="Top" Height="28" Width="753" Foreground="White"/>
+                </Grid>
             </Grid>
         </Border>
         <Border BorderBrush="#FF3C3C3C" Background="#FF282828" Margin="0,32,774,0" CornerRadius="0,0,0,10" BorderThickness="1,0,0,1">
@@ -199,7 +219,7 @@
             </Grid>
         </Border>
         <Border x:Name="DragBorder" BorderThickness="1,1,1,0" Margin="0,0,0,668" Background="#FF282828" BorderBrush="#FF3C3C3C" CornerRadius="10,10,0,0" MouseLeftButtonDown="DragBorder_MouseLeftButtonDown">
-            <Label Content="Настройки Wled Tray" Foreground="White" Margin="9,0,0,0"/>
+            <Label x:Name="TittleLabel" Content="Настройки Wled Tray" Foreground="White" Margin="9,0,0,0"/>
         </Border>
         <Button Content="❌"
         Margin="969,1,1,668"
