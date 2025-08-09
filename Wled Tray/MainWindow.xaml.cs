@@ -100,8 +100,7 @@ namespace Wled_Tray
                 return null; // при ошибке вернуть Null
             }
         }
-
-
+        
         public class SimpleCard
         {
             public string Title { get; set; }

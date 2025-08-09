@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
+using Wled_Tray.Properties;
 
 namespace Wled_Tray
 {
@@ -23,7 +24,7 @@ namespace Wled_Tray
             base.OnStartup(e);
             IPManager.Ini();
             trayIcon = new NotifyIcon();
-            trayIcon.Icon = new Icon("wled.ico"); // Добавь иконку в корень проекта
+            trayIcon.Icon = Wled_Tray.Properties.Resources.wled;
             trayIcon.Visible = true;
             trayIcon.Text = "Wled Tray";
             this.ShutdownMode = ShutdownMode.OnExplicitShutdown;
