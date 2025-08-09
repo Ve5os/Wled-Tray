@@ -39,9 +39,11 @@ namespace Wled_Tray
                 hideTimer.Stop();
                 this.Close();
             };
-            GenerateCard("192.168.1.110");
-            GenerateCard("192.168.1.111");
-            GenerateCard("192.168.1.113");
+
+            foreach (var ip in IPManager.LoadIps())
+            {
+                GenerateCard(ip);
+            }
         }
 
         public async void GenerateCard(string ip)

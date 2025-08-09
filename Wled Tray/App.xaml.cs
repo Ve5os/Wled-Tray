@@ -21,6 +21,7 @@ namespace Wled_Tray
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+            IPManager.Ini();
             trayIcon = new NotifyIcon();
             trayIcon.Icon = new Icon("wled.ico"); // Добавь иконку в корень проекта
             trayIcon.Visible = true;

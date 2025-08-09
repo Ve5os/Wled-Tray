@@ -29,6 +29,8 @@ namespace Wled_Tray
 
             if (MyIni.Read("Lang") == "en")
             {
+                mainWindow.ErrorMessage = "The WLED device is offline.";
+                mainWindow.InvalidIP = "Invalid IP address!";
                 mainWindow.Main.Content = "⚙️ Main";
                 mainWindow.Information.Content = "⚠️ Information";
                 mainWindow.LangLabel.Content = "Language";

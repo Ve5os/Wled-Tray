@@ -72,6 +72,7 @@
     <Compile Include="Card.cs" />
     <Compile Include="ColorExChange.cs" />
     <Compile Include="IniFile.cs" />
+    <Compile Include="IPManager.cs" />
     <Compile Include="LanguagePackage.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
