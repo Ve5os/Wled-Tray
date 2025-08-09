@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Wled_Tray
         public MainWindow()
         {
             InitializeComponent();
+            UpdateAutoStartButtonsVisibility();
             this.Hide();
 
             // Инициализация IPManager (создаём файл, если его нет)
@@ -50,6 +52,44 @@ namespace Wled_Tray
             if (e.ButtonState == System.Windows.Input.MouseButtonState.Pressed)
             {
                 try { this.DragMove(); } catch { }
+            }
+        }
+        private void UpdateAutoStartButtonsVisibility()
+        {
+            if (AutoStartManager.IsAutoStartEnabled())
+            {
+                AddAuto.Visibility = Visibility.Hidden;
+                RemoveAuto.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AddAuto.Visibility = Visibility.Visible;
+                RemoveAuto.Visibility = Visibility.Hidden;
+            }
+        }
+        private void AddAuto_Clk(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AutoStartManager.EnableAutoStart();
+                UpdateAutoStartButtonsVisibility();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void RemoveAuto_Clk(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AutoStartManager.DisableAutoStart();
+                UpdateAutoStartButtonsVisibility();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 

@@ -36,6 +36,9 @@ namespace Wled_Tray
                     mainWindow.InvalidIP = "Invalid IP address!";
                     mainWindow.Main.Content = "⚙️ Main";
                     mainWindow.Information.Content = "⚠️ Information";
+                    mainWindow.AutoLabel.Content = "Autostart";
+                    mainWindow.AddAuto.Content = "Enable";
+                    mainWindow.RemoveAuto.Content = "Disable";
                     mainWindow.LangLabel.Content = "Language";
                     mainWindow.AddBtn.Content = "Add";
                     mainWindow.Title = "Settings Wled Tray";

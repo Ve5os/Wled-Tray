@@ -69,6 +69,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AutoStartManager.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="ColorExChange.cs" />
     <Compile Include="IniFile.cs" />
