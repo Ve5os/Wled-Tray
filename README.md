@@ -1,4 +1,4 @@
-# WLED Tray Controller - [Русский](https://github.com/Ve5os/Wled-Tray/blob/master/README.md) 
+# WLED Tray Controller - [Русский](https://github.com/Ve5os/Wled-Tray/blob/master/README_RU.md) 
 
 **WLED Tray** is a convenient minimalist app for Windows 11\10 that lets you control WLED devices right from the system tray. The program is written in WPF with a focus on classic Windows 11 style and maximum ease of use.
 
