@@ -68,9 +68,3 @@
 
 **Vepa / Ve5os**  
 🛠 Enthusiast of gadgets, DIY, Home Assistant, and more.  
-
----
-
-## 📄 License
-
-MIT — do whatever you want with the project, just don't forget to link back to the original ✌️
