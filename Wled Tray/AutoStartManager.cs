@@ -25,7 +25,7 @@ namespace Wled_Tray
                     key.SetValue(AppName, $"\"{exePath}\"");
                 }
             }
-            catch ()
+            catch
             {
             }
         }
