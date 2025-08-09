@@ -10,7 +10,7 @@ namespace Wled_Tray
     public static class AutoStartManager
     {
         private const string RunRegistryKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run";
-        private static string AppName = "RoNightApp"; // Можно заменить на название твоего приложения
+        private static string AppName = "WledTray"; 
 
         public static void EnableAutoStart()
         {
@@ -25,10 +25,8 @@ namespace Wled_Tray
                     key.SetValue(AppName, $"\"{exePath}\"");
                 }
             }
-            catch (Exception ex)
+            catch ()
             {
-                // Тут можно логировать ошибку или показывать пользователю
-                throw new Exception("Ошибка при включении автозапуска: " + ex.Message);
             }
         }
 
