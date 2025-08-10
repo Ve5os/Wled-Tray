@@ -121,4 +121,13 @@
   <data name="wled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wled.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ledstrip" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ledstrip.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="zledstrips" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zledstrips.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="WledTray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WledTray.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

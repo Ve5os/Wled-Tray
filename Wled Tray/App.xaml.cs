@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -14,21 +15,44 @@ namespace Wled_Tray
 {
     public partial class App : System.Windows.Application
     {
-        IniFile MyIni;
         NotifyIcon trayIcon;
         private ContextMenuStrip trayMenu;
-
+        private PopupWindow popupWindow = null;
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             IPManager.Ini();
+            trayGenerate();
+            this.ShutdownMode = ShutdownMode.OnExplicitShutdown; 
+        }
+
+        private void trayGenerate()
+        {
+            IniFile MyIni = new IniFile(JustPath.GetIni());
             trayIcon = new NotifyIcon();
-            trayIcon.Icon = Wled_Tray.Properties.Resources.wled;
+
+            switch (MyIni.Read("Icon"))
+            {
+                case "1":
+                    trayIcon.Icon = Wled_Tray.Properties.Resources.ledstrip;
+                    break;
+                case "2":
+                    trayIcon.Icon = Wled_Tray.Properties.Resources.wled;
+                    break;
+                case "3":
+                    trayIcon.Icon = Wled_Tray.Properties.Resources.zledstrips;
+                    break;
+                case "4":
+                    trayIcon.Icon = Wled_Tray.Properties.Resources.WledTray;
+                    break;
+                default:
+                    trayIcon.Icon = Wled_Tray.Properties.Resources.wled;
+                    break;
+            }
+
             trayIcon.Visible = true;
             trayIcon.Text = "Wled Tray";
-            this.ShutdownMode = ShutdownMode.OnExplicitShutdown;
-
             trayMenu = new ContextMenuStrip();
             trayMenu.Items.Add("Настройки", null, OnSettingsClicked_tray);
             trayMenu.Items.Add("Выход", null, OnExitClicked_tray);
@@ -36,9 +60,8 @@ namespace Wled_Tray
             trayIcon.ContextMenuStrip = trayMenu;
 
             trayIcon.MouseClick += TrayIcon_Click;
-
-            
         }
+     
         #region Tray Buttons
         private void OnExitClicked_tray(object sender, EventArgs e)
         {
@@ -63,15 +86,6 @@ namespace Wled_Tray
                 mainWindow.Activate();
             }
         }
-        #endregion
-        protected override void OnExit(ExitEventArgs e)
-        {
-            trayIcon.Visible = false;
-            trayIcon.Dispose();
-            base.OnExit(e);
-        }
-        private PopupWindow popupWindow = null;
-
         private void TrayIcon_Click(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -100,6 +114,16 @@ namespace Wled_Tray
                 }
             }
         }
+        #endregion
+    
+        protected override void OnExit(ExitEventArgs e)
+        {
+            trayIcon.Visible = false;
+            trayIcon.Dispose();
+            base.OnExit(e);
+        }
 
+
+     
     }
 }

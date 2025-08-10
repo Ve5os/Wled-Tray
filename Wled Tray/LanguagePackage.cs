@@ -21,11 +21,11 @@ namespace Wled_Tray
 
         public void Update()
         {
-            IniFile MyIni = GetIni();
+            IniFile MyIni = new IniFile(JustPath.GetIni());
 
             if (!MyIni.KeyExists("Lang"))
             {
-                MyIni.Write("Lang", "ru");
+                MyIni.Write("Lang", "en");
             }
 
             if (MyIni.Read("Lang") == "en")
@@ -50,30 +50,9 @@ namespace Wled_Tray
 
         public void Write(string s)
         {
-            IniFile MyIni = GetIni();
+            IniFile MyIni = new IniFile(JustPath.GetIni());
             MyIni.Write("Lang", s);
             Update();
         }
-        private IniFile GetIni()
-        {
-            // Получаем путь к папке AppData\Roaming
-            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-
-            // Формируем путь к папке Wled_Tray
-            string folderPath = Path.Combine(appDataPath, "Wled_Tray");
-
-            // Проверяем, существует ли папка, если нет — создаём
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-
-            // Формируем полный путь к файлу Settings.ini
-            string iniFilePath = Path.Combine(folderPath, "Settings.ini");
-
-            // Инициализируем твой ini-файл с полным путём
-            return new IniFile(iniFilePath);
-        }
     }
-
 }

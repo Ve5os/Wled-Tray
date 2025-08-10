@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="Настройки Wled Tray" Height="700" Width="1000" Background="{x:Null}" WindowStyle="None" ResizeMode="NoResize" SnapsToDevicePixels="True" AllowsTransparency="True">
     <Window.Resources>
+        
         <BooleanToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+        
+        
+
         <Style x:Key="CustomRoundedTextBox" TargetType="TextBox">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="#FF2D2D2D"/>
@@ -107,12 +111,13 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
 
     </Window.Resources>
     <Grid>
         <Border x:Name="RightMenu" BorderBrush="#FF3C3C3C" Background="#FF2D2D2D" Margin="226,32,0,0" CornerRadius="0,0,10,0" BorderThickness="0,0,1,1">
             <Grid x:Name="Right">
-                <Grid x:Name="_1" d:IsHidden="True">
+                <Grid x:Name="_1">
                     <Border x:Name="Lang" Margin="10,10,10,596" Background="#FF282828" CornerRadius="10,10,10,10" Padding="3,0,0,0" BorderThickness="1,1,1,1" BorderBrush="#FF3C3C3C">
                         <Grid>
                             <Label x:Name="LangLabel" Content="Язык" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="39" Width="334" Foreground="White" FontSize="20" RenderTransformOrigin="0.5,0.5">
@@ -144,6 +149,41 @@
                             </Label>
                             <Button x:Name="RemoveAuto" Style="{StaticResource CustomRoundedButton}" Click="RemoveAuto_Clk" Content="Убрать" Width="80" Margin="658,10,10,10" d:IsHidden="True"/>
                             <Button x:Name="AddAuto" Style="{StaticResource CustomRoundedButton}" Click="AddAuto_Clk" Content="Добавить" Width="80" Margin="658,10,10,10"/>
+
+                        </Grid>
+                    </Border>
+                    <Border x:Name="SelectIcon" Margin="10,142,10,464" Background="#FF282828" CornerRadius="10,10,10,10" Padding="3,0,0,0" BorderThickness="1,1,1,1" BorderBrush="#FF3C3C3C">
+                        <Grid>
+                            <Label x:Name="IconLabel" Content="Показывать иконку в трее" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center" Height="39" Width="334" Foreground="White" FontSize="20" RenderTransformOrigin="0.5,0.5">
+                                <Label.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform AngleY="0.059"/>
+                                        <RotateTransform/>
+                                        <TranslateTransform Y="0.249"/>
+                                    </TransformGroup>
+                                </Label.RenderTransform>
+                            </Label>
+                            <Button x:Name="Ico1" Style="{StaticResource CustomRoundedButton}" Click="Ico1_Clk" Content="" Width="39" Margin="699,10,10,10">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/ledstrip.ico"/>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="Ico2" Style="{StaticResource CustomRoundedButton}" Click="Ico2_Clk" Content="" Width="39" Margin="655,9,54,11">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/wled.ico"/>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="Ico3" Style="{StaticResource CustomRoundedButton}" Click="Ico3_Clk" Content="" Width="39" Margin="611,9,98,11">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/zledstrips.ico"/>
+                                </Button.Background>
+                            </Button>
+                            <Button x:Name="Ico4" Style="{StaticResource CustomRoundedButton}" Click="Ico4_Clk" Content="" Width="39" Margin="567,9,142,11">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="/WledTray.ico"/>
+                                </Button.Background>
+                            </Button>
 
                         </Grid>
                     </Border>
@@ -223,7 +263,7 @@
                         </ListBox.ItemTemplate>
                     </ListBox>
                 </Grid>
-                <Grid x:Name="_3">
+                <Grid x:Name="_3" d:IsHidden="True">
                     <Label Content="GitHub - https://github.com/Ve5os/Wled-Tray" HorizontalAlignment="Left" Margin="10,0,0,14" VerticalAlignment="Bottom" Height="28" Width="321" Foreground="White"/>
                     <Label x:Name="VersionLabel" Content="" HorizontalAlignment="Right" Margin="0,0,10,14" VerticalAlignment="Bottom" Height="28" Width="321" Foreground="White" HorizontalContentAlignment="Right"/>
                 </Grid>

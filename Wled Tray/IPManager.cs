@@ -6,12 +6,8 @@ namespace Wled_Tray
 {
     internal static class IPManager
     {
-        private static readonly string AppDataFolder = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-            "Wled_Tray"
-        );
+       
 
-        private static readonly string IpFilePath = Path.Combine(AppDataFolder, "ips.txt");
 
         /// <summary>
         /// Инициализация файла IP — создаёт папку и пустой файл, если их нет
@@ -20,11 +16,11 @@ namespace Wled_Tray
         {
             try
             {
-                Directory.CreateDirectory(AppDataFolder);
+              
 
-                if (!File.Exists(IpFilePath))
+                if (!File.Exists(JustPath.GetIps()))
                 {
-                    File.WriteAllText(IpFilePath, string.Empty);
+                    File.WriteAllText(JustPath.GetIps(), string.Empty);
                 }
             }
             catch (Exception ex)
@@ -40,10 +36,10 @@ namespace Wled_Tray
         {
             try
             {
-                if (!File.Exists(IpFilePath))
+                if (!File.Exists(JustPath.GetIps()))
                     return new List<string>();
 
-                var lines = File.ReadAllLines(IpFilePath);
+                var lines = File.ReadAllLines(JustPath.GetIps());
                 return new List<string>(lines);
             }
             catch
@@ -59,13 +55,12 @@ namespace Wled_Tray
         {
             try
             {
-                Directory.CreateDirectory(AppDataFolder);
 
                 var ips = LoadIps();
                 if (!ips.Contains(ip))
                 {
                     ips.Add(ip);
-                    File.WriteAllLines(IpFilePath, ips);
+                    File.WriteAllLines(JustPath.GetIps(), ips);
                 }
             }
             catch (Exception ex)
@@ -81,13 +76,13 @@ namespace Wled_Tray
         {
             try
             {
-                if (!File.Exists(IpFilePath))
+                if (!File.Exists(JustPath.GetIps()))
                     return;
 
                 var ips = LoadIps();
                 if (ips.Remove(ip))
                 {
-                    File.WriteAllLines(IpFilePath, ips);
+                    File.WriteAllLines(JustPath.GetIps(), ips);
                 }
             }
             catch (Exception ex)

@@ -63,9 +63,39 @@ namespace Wled_Tray.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
         /// </summary>
+        internal static System.Drawing.Icon ledstrip {
+            get {
+                object obj = ResourceManager.GetObject("ledstrip", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
         internal static System.Drawing.Icon wled {
             get {
                 object obj = ResourceManager.GetObject("wled", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon WledTray {
+            get {
+                object obj = ResourceManager.GetObject("WledTray", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Icon, аналогичного (Значок).
+        /// </summary>
+        internal static System.Drawing.Icon zledstrips {
+            get {
+                object obj = ResourceManager.GetObject("zledstrips", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

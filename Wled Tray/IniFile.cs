@@ -48,5 +48,6 @@ namespace Wled_Tray
         {
             return Read(Key, Section).Length > 0;
         }
+
     }
 }

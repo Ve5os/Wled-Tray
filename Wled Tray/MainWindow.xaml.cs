@@ -8,17 +8,20 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Xml.Linq;
+using System.IO;
 
 namespace Wled_Tray
 {
     public partial class MainWindow : Window
     {
+        //Нужен хороший рефакторинг всего класса
+
         private LanguagePackage languagePackage;
         private ObservableCollection<SimpleCard> cards = new ObservableCollection<SimpleCard>();
         public string ErrorMessage = "Устройство WLED не в сети.";
         public string InvalidIP = "Невалидный IP-адрес!";
 
-        public string ReleaseVersion = "v0.3b";
+        public string ReleaseVersion = "v0.5b";
         public MainWindow()
         {
             InitializeComponent();
@@ -102,6 +105,28 @@ namespace Wled_Tray
         private void Rus_Clk(object sender, RoutedEventArgs e) => languagePackage.Write("ru");
         private void Eng_Clk(object sender, RoutedEventArgs e) => languagePackage.Write("en");
         private void CloseBTN_Click(object sender, RoutedEventArgs e) => this.Close();
+
+        private void Ico1_Clk(object sender, RoutedEventArgs e)
+        {
+            IniFile MyIni = new IniFile(JustPath.GetIni());
+            MyIni.Write("Icon", "1");
+        }
+        private void Ico2_Clk(object sender, RoutedEventArgs e)
+        {
+            IniFile MyIni = new IniFile(JustPath.GetIni());
+            MyIni.Write("Icon", "2");
+        }
+        private void Ico3_Clk(object sender, RoutedEventArgs e)
+        {
+            IniFile MyIni = new IniFile(JustPath.GetIni());
+            MyIni.Write("Icon", "3");
+        }
+        private void Ico4_Clk(object sender, RoutedEventArgs e)
+        {
+            IniFile MyIni = new IniFile(JustPath.GetIni());
+            MyIni.Write("Icon", "4");
+        }
+
 
         private void Main_Clk(object sender, RoutedEventArgs e)
         {
