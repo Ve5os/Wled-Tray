@@ -190,7 +190,7 @@ namespace Wled_Tray
                 cards.Remove(card);
 
                 // Удаляем из файла
-                IPManager.DeleteIp(card.Title);
+                IPManager.DeleteIp(card.Title.Split('[', ']')[1]);
             }
         }
     }
