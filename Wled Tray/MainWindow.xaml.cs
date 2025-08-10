@@ -17,9 +17,12 @@ namespace Wled_Tray
         private ObservableCollection<SimpleCard> cards = new ObservableCollection<SimpleCard>();
         public string ErrorMessage = "Устройство WLED не в сети.";
         public string InvalidIP = "Невалидный IP-адрес!";
+
+        public string ReleaseVersion = "v0.3b";
         public MainWindow()
         {
             InitializeComponent();
+            VersionLabel.Content = ReleaseVersion;
             UpdateAutoStartButtonsVisibility();
             _1.Visibility = Visibility.Visible;
             _2.Visibility = Visibility.Hidden;
