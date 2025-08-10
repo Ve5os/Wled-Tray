@@ -21,6 +21,9 @@ namespace Wled_Tray
         {
             InitializeComponent();
             UpdateAutoStartButtonsVisibility();
+            _1.Visibility = Visibility.Visible;
+            _2.Visibility = Visibility.Hidden;
+            _3.Visibility = Visibility.Hidden;
             this.Hide();
 
             // Инициализация IPManager (создаём файл, если его нет)
